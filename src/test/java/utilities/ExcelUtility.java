@@ -2,7 +2,6 @@ package utilities;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -50,7 +49,7 @@ public class ExcelUtility
 			 
 	 }
 	 
-   public String getCellData(String sheetName,int rownum,int column)
+   public String getCellData(String sheetName,int rownum,int column) throws IOException
    {
 	   fi=new FileInputStream(path);
 	   workbook=new XSSFWorkbook(fi);
@@ -69,11 +68,11 @@ public class ExcelUtility
 		  data="";
 		  
 	  }
-	  workbook.close();
+	 workbook.close();
 		 fi.close();
 		 return data; 
 	  }
-   public void setCellData(String sheetName,int rownum,int column,String data)
+   public void setCellData(String sheetName,int rownum,int column,String data) throws IOException
    {
 	   File xlfile=new File(path);
 	   if(!xlfile.exists())
@@ -127,4 +126,4 @@ public class ExcelUtility
    
 	
 
-}
+
